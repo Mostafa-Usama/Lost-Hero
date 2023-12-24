@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://xm2i4f0hwkjn"]
+
+[ext_resource type="PackedScene" uid="uid://bi8nnqtsc5t0y" path="res://Scenes/npc.tscn" id="1_oxvwi"]
+[ext_resource type="Script" path="res://Scripts/Queen.gd" id="2_fie35"]
+[ext_resource type="Texture2D" uid="uid://bmxmu5qu7fpib" path="res://Art/Queen/Queen_Idle_1.png" id="4_a6ali"]
+[ext_resource type="Texture2D" uid="uid://5qmv87pojmws" path="res://Art/Queen/Queen_Idle_2.png" id="5_i1flo"]
+[ext_resource type="Texture2D" uid="uid://da4g2q6hc0nrl" path="res://Art/Queen/Queen_Idle_3.png" id="6_3hd2f"]
+[ext_resource type="Texture2D" uid="uid://drr3o662nhbca" path="res://Art/Queen/Queen_Idle_4.png" id="7_mrq48"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhjnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a6ali")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i1flo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3hd2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mrq48")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Queen" instance=ExtResource("1_oxvwi")]
+script = ExtResource("2_fie35")
+quest_item = null
+player_inv = null
+quest_num = Array[int]([])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_yhjnl")
+animation = &"idle"
+frame_progress = 0.948331

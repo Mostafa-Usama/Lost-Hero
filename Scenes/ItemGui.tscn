@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://buisggbte2ju8"]
+
+[ext_resource type="Script" path="res://Scripts/ItemGui.gd" id="1_41ma6"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_41ma6")
+
+[node name="item" type="Sprite2D" parent="."]
+
+[node name="amount" type="Label" parent="."]
+custom_minimum_size = Vector2(40, 26)
+layout_mode = 2
+offset_left = -7.0
+offset_right = 33.0
+offset_bottom = 26.0
+scale = Vector2(0.35, 0.35)
+theme_override_constants/outline_size = 1
+horizontal_alignment = 2

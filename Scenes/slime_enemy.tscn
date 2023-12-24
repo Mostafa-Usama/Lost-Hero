@@ -1,0 +1,225 @@
+[gd_scene load_steps=28 format=3 uid="uid://dyomyp3weenw0"]
+
+[ext_resource type="Texture2D" uid="uid://d3jeyxqfw5iki" path="res://Art/survivalgame-enemy-slime.png" id="1_36s5p"]
+[ext_resource type="Script" path="res://Scripts/slime_enemy.gd" id="1_awe87"]
+[ext_resource type="Resource" uid="uid://dqd3t52xv1v4p" path="res://inventory/items/slime.tres" id="2_uvmwf"]
+[ext_resource type="PackedScene" uid="uid://cmcwi35ydguca" path="res://Scenes/slime_loot.tscn" id="3_6gmkp"]
+[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/pinpng.com-rectangle-border-png-154030.png" id="5_o4wt4"]
+[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/over.png" id="6_mnjgh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_674fv"]
+radius = 11.0454
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0dlo"]
+radius = 113.004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aop7i"]
+radius = 19.105
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kydlb"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l835y"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tshwc"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18syl"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkkud"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kw74"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtxsp"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w33jj"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk34h"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07h5h"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5vqn"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61p0s"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlh22"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ivhs"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2hsr"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cit5f"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pymt0"]
+atlas = ExtResource("1_36s5p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x70sf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kydlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l835y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tshwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18syl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkkud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kw74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtxsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w33jj")
+}],
+"loop": false,
+"name": &"death",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk34h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07h5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5vqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61p0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlh22")
+}],
+"loop": true,
+"name": &"follow",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ivhs")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2hsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cit5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pymt0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="slime enemy" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 27
+motion_mode = 1
+platform_floor_layers = 4294967040
+script = ExtResource("1_awe87")
+loot = ExtResource("2_uvmwf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_674fv")
+
+[node name="notice area" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notice area"]
+shape = SubResource("CircleShape2D_d0dlo")
+
+[node name="attack area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack area"]
+shape = SubResource("CircleShape2D_aop7i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x70sf")
+animation = &"idle"
+
+[node name="slime loot" parent="." instance=ExtResource("3_6gmkp")]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 116.0
+offset_bottom = 55.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.063
+anchor_top = -0.182
+anchor_right = 0.063
+anchor_bottom = -0.124
+offset_left = 0.0352736
+offset_top = -1.80818
+offset_right = 1769.42
+offset_bottom = 626.002
+scale = Vector2(0.008, 0.005)
+max_value = 10.0
+value = 8.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_o4wt4")
+texture_over = ExtResource("6_mnjgh")
+texture_progress = ExtResource("5_o4wt4")
+texture_progress_offset = Vector2(0, 30)
+tint_under = Color(0.780392, 0, 0, 1)
+tint_progress = Color(0, 0.627451, 0, 1)
+
+[connection signal="body_entered" from="notice area" to="." method="_on_notice_area_body_entered"]
+[connection signal="body_exited" from="notice area" to="." method="_on_notice_area_body_exited"]
+[connection signal="body_entered" from="attack area" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attack area" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="slime loot" to="." method="_on_slime_loot_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

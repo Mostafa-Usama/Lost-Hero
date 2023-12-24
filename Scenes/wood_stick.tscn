@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://orpjm66djx7j"]
+
+[ext_resource type="Texture2D" uid="uid://dxehh8tjtuxu6" path="res://Art/elements_sheet.png" id="1_772vx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2i1a"]
+radius = 4.0
+
+[node name="wood stick" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 17
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_772vx")
+region_enabled = true
+region_rect = Rect2(177.614, 0, 13.5287, 31.9056)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_u2i1a")

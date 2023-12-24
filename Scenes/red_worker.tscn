@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtao6i4oxsdro"]
+
+[ext_resource type="PackedScene" uid="uid://bi8nnqtsc5t0y" path="res://Scenes/npc.tscn" id="1_uaudf"]
+[ext_resource type="Texture2D" uid="uid://x3nuhuixthle" path="res://Art/Human-Worker-Red.png" id="2_riyhu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v4ub"]
+atlas = ExtResource("2_riyhu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp17j"]
+atlas = ExtResource("2_riyhu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5y65s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v4ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp17j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="red worker" instance=ExtResource("1_uaudf")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_5y65s")
+animation = &"idle"
+frame_progress = 0.928643

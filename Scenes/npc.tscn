@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi8nnqtsc5t0y"]
+
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_oqb24"]
+[ext_resource type="Resource" uid="uid://ipf2mik6ufyy" path="res://inventory/items/Stick.tres" id="2_d8iqi"]
+[ext_resource type="Resource" uid="uid://cgonjbihx3h4" path="res://inventory/inventories/player_inventory.tres" id="3_3o3v3"]
+[ext_resource type="PackedScene" uid="uid://dv7vibw0wa22c" path="res://Scenes/dialogue.tscn" id="3_glr84"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ijek"]
+radius = 5.09902
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35yfr"]
+radius = 31.0
+
+[node name="npc" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_oqb24")
+quest_item = ExtResource("2_d8iqi")
+player_inv = ExtResource("3_3o3v3")
+quest_num = Array[int]([0, 0])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_1ijek")
+
+[node name="interact area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact area"]
+shape = SubResource("CircleShape2D_35yfr")
+
+[node name="delay" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="move" type="Timer" parent="."]
+
+[node name="Dialogue" parent="." instance=ExtResource("3_glr84")]
+offset_left = -28.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -20.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="finshed" from="." to="Dialogue" method="_on_red_worker_npc_finshed"]
+[connection signal="num" from="." to="Dialogue" method="_on_red_worker_npc_num"]
+[connection signal="body_entered" from="interact area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact area" to="." method="_on_interact_area_body_exited"]
+[connection signal="timeout" from="delay" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="move" to="." method="_on_move_timeout"]
+[connection signal="finshed" from="Dialogue" to="." method="_on_dialogue_finshed"]

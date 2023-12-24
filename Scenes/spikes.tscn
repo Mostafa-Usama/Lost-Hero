@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://chb8gg5fnwrhc"]
+
+[ext_resource type="Texture2D" uid="uid://241hsvlv1qe4" path="res://Art/Spike_trap.png" id="1_fypiy"]
+[ext_resource type="Script" path="res://Scripts/spikes.gd" id="1_ildql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wxlf"]
+size = Vector2(16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uwnv"]
+atlas = ExtResource("1_fypiy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hkhk"]
+atlas = ExtResource("1_fypiy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5052q"]
+atlas = ExtResource("1_fypiy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1mi4"]
+atlas = ExtResource("1_fypiy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf8b0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uwnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hkhk")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5052q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1mi4")
+}],
+"loop": false,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[node name="Spikes" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_ildql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8wxlf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xf8b0")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="opened" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="closed" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="opened" to="." method="_on_opened_timeout"]
+[connection signal="timeout" from="closed" to="." method="_on_closed_timeout"]

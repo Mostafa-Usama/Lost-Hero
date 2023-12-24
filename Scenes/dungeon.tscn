@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://2jfxva0kr1ka"]
+
+[ext_resource type="Texture2D" uid="uid://dxehh8tjtuxu6" path="res://Art/elements_sheet.png" id="1_3dtop"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_3dtop")
+region_enabled = true
+region_rect = Rect2(176.191, 33.2369, 63.8092, 49.7763)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5, 1.5)
+polygon = PackedVector2Array(34.5, 39.5, 63.5, 32.5, 65.5, -11.5, 41.5, -41.5, 23.5, -44.5, 17.5, -21.5, 18.5, 5.5, 19.5, 39.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-23, -37, -38, -29, -55, -7, -69, 41, -35, 42, -28, 7, -23, -11)

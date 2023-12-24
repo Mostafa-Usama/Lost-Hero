@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://326ckw517fo0"]
+
+[ext_resource type="Texture2D" uid="uid://dimhddgodwqer" path="res://Art/inventory-slot.png" id="1_gtxhd"]
+[ext_resource type="Script" path="res://Scripts/slot.gd" id="2_ba0o8"]
+
+[node name="Slot" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.014
+anchor_bottom = 0.025
+offset_right = -0.128
+offset_bottom = -0.200001
+texture_normal = ExtResource("1_gtxhd")
+texture_pressed = ExtResource("1_gtxhd")
+texture_hover = ExtResource("1_gtxhd")
+script = ExtResource("2_ba0o8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

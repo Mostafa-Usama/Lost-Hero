@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://tbsie72328na"]
+
+[ext_resource type="PackedScene" uid="uid://bi8nnqtsc5t0y" path="res://Scenes/npc.tscn" id="1_usppj"]
+[ext_resource type="Texture2D" uid="uid://df1d3t6bh25n3" path="res://Art/Butcher_Idle_1.png" id="2_01xch"]
+[ext_resource type="Texture2D" uid="uid://ie31tpme1qbp" path="res://Art/Butcher_Idle_2.png" id="3_r08fg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v88t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_01xch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r08fg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="Worker" instance=ExtResource("1_usppj")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_1v88t")
+animation = &"idle"
+frame_progress = 0.593749

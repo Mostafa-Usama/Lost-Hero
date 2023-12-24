@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmcwi35ydguca"]
+
+[ext_resource type="Texture2D" uid="uid://dss5kx0bgb2nh" path="res://Art/slime-icon.png" id="1_ae3iw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_baoce"]
+
+[node name="slime loot" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ae3iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_baoce")

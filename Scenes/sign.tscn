@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceknxd2drsmwx"]
+
+[ext_resource type="Texture2D" uid="uid://bh0joh21f1w47" path="res://Art/survivalgame-randomitems.png" id="1_j1yfs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1noi"]
+radius = 7.14349
+
+[node name="Sign" type="StaticBody2D"]
+scale = Vector2(2.1, 2.1)
+collision_layer = 2
+collision_mask = 17
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_j1yfs")
+region_enabled = true
+region_rect = Rect2(16.8196, 16.4218, 13.8796, 15.0362)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_y1noi")

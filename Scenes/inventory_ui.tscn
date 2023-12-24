@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1u4djswo2bus"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_ui.gd" id="1_xnnrw"]
+[ext_resource type="Texture2D" uid="uid://c6xpge21po588" path="res://Art/inventory-background.png" id="2_xtbfu"]
+[ext_resource type="PackedScene" uid="uid://326ckw517fo0" path="res://Scenes/slot.tscn" id="3_gphig"]
+
+[node name="Inventory_UI" type="Control"]
+custom_minimum_size = Vector2(90, 65)
+layout_mode = 3
+anchor_right = 0.078
+anchor_bottom = 0.1
+offset_right = 0.143997
+offset_bottom = 0.199997
+script = ExtResource("1_xnnrw")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xtbfu")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.069
+anchor_right = 0.922
+anchor_bottom = 0.931
+offset_left = -0.02
+offset_top = 0.0149994
+offset_right = 0.0199966
+offset_bottom = -0.0150032
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Slot" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot2" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot3" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot4" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot5" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot6" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot7" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot8" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot9" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot10" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot11" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+
+[node name="Slot12" parent="Background/GridContainer" instance=ExtResource("3_gphig")]
+layout_mode = 2
+size_flags_vertical = 8

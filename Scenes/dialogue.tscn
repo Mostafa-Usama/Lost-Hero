@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv7vibw0wa22c"]
+
+[ext_resource type="Script" path="res://Scripts/dialogue.gd" id="1_7sp71"]
+[ext_resource type="Texture2D" uid="uid://c6xpge21po588" path="res://Art/inventory-background.png" id="1_emip3"]
+
+[node name="Dialogue" type="Control"]
+z_index = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 77.0
+offset_top = 5.0
+offset_right = 117.0
+offset_bottom = 45.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_7sp71")
+d_file = "res://Dialoges/dialoge 1.json"
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 13.0
+offset_right = 84.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_emip3")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 65.0
+offset_bottom = 27.0
+scale = Vector2(0.8, 0.8)
+text = "Name: "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 27.0
+offset_right = 197.0
+offset_bottom = 120.0
+scale = Vector2(0.6, 0.6)
+text = "sfsf"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

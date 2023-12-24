@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1q4idr51wch7"]
+
+[ext_resource type="PackedScene" uid="uid://if0abeog3kor" path="res://Scenes/item.tscn" id="1_s0ri2"]
+[ext_resource type="Script" path="res://Scripts/Stick.gd" id="2_q236p"]
+[ext_resource type="Resource" uid="uid://ipf2mik6ufyy" path="res://inventory/items/Stick.tres" id="3_mt2uq"]
+[ext_resource type="Texture2D" uid="uid://c7gf7nxo8pxxj" path="res://Art/log.png" id="4_p2uu0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7n8na"]
+radius = 6.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofrj8"]
+radius = 11.0
+
+[node name="Stick" instance=ExtResource("1_s0ri2")]
+scale = Vector2(0.8, 0.8)
+collision_layer = 4
+script = ExtResource("2_q236p")
+itemType = ExtResource("3_mt2uq")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("4_p2uu0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_7n8na")
+
+[node name="CollisionShape2D" parent="pickup area" index="0"]
+shape = SubResource("CircleShape2D_ofrj8")
+
+[connection signal="body_entered" from="pickup area" to="." method="_on_pickup_area_body_entered"]
+[connection signal="body_exited" from="pickup area" to="." method="_on_pickup_area_body_exited"]

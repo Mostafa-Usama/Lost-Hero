@@ -1,0 +1,160 @@
+[gd_scene load_steps=17 format=3 uid="uid://c4rc1joxl37u6"]
+
+[ext_resource type="Texture2D" uid="uid://dei5mo2xavocs" path="res://Art/Characters.png" id="1_jr2es"]
+[ext_resource type="Script" path="res://Scripts/red_mage_enemy.gd" id="1_lk8d8"]
+[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/pinpng.com-rectangle-border-png-154030.png" id="3_6g2lp"]
+[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/over.png" id="4_f821k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wlp18"]
+radius = 6.08276
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3mor"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(64, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skg6t"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(80, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeb2m"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(96, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48wjy"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(0, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hytkf"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(32, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hy4c"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(48, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43x84"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(112, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxl7d"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(0, 78, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mivtv"]
+atlas = ExtResource("1_jr2es")
+region = Rect2(16, 78, 16, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg8f8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3mor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skg6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeb2m")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48wjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hytkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hy4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43x84")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxl7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mivtv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuod3"]
+radius = 203.039
+
+[node name="Red Mage Enemy" type="CharacterBody2D"]
+scale = Vector2(1.1, 1.1)
+collision_layer = 16
+collision_mask = 27
+script = ExtResource("1_lk8d8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_wlp18")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xg8f8")
+animation = &"die"
+frame = 3
+frame_progress = 1.0
+
+[node name="ShootingPos" type="Marker2D" parent="."]
+position = Vector2(5, 2)
+
+[node name="ShootingPos2" type="Marker2D" parent="."]
+position = Vector2(-6, 2)
+
+[node name="notice area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notice area"]
+shape = SubResource("CircleShape2D_tuod3")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+collision_mask = 3
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 116.0
+offset_bottom = 55.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.063
+anchor_top = -0.182
+anchor_right = 0.063
+anchor_bottom = -0.124
+offset_left = 0.0352736
+offset_top = -1.80818
+offset_right = 1769.42
+offset_bottom = 626.002
+scale = Vector2(0.008, 0.005)
+max_value = 15.0
+value = 8.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_6g2lp")
+texture_over = ExtResource("4_f821k")
+texture_progress = ExtResource("3_6g2lp")
+texture_progress_offset = Vector2(0, 30)
+tint_under = Color(0.780392, 0, 0, 1)
+tint_progress = Color(0, 0.627451, 0, 1)
+
+[connection signal="body_entered" from="notice area" to="." method="_on_notice_area_body_entered"]
+[connection signal="body_exited" from="notice area" to="." method="_on_notice_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

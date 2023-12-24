@@ -1,0 +1,34 @@
+[
+	[
+		{"name":"Worker", "text": "Hello There"},
+		{"name":"Worker", "text": "I'm just around here working for the 'Red Company' "},
+		{"name":"Worker", "text": "We are out here chopping down all these trees"},
+		{"name":"You", "text": "WHAT??!"},
+		{"name":"Worker", "text": "Yeah, we gotta make profit somehow!"},
+		{"name":"Worker", "text": "Can you get me 2 Sticks for some money? i'm getting tired"},
+		{"name":"You", "text": "Yeah, I guess I can help"},
+		{"name":"Worker", "text": "Thanks for helping me!"}
+	],
+	[
+		{"name":"Worker", "text": "Hey There!"},
+		{"name":"Worker", "text": "There are 2 Slimes Monesters down there"},
+		{"name":"Worker", "text": "Can you kill them and get me their slimes?"},
+		{"name":"You", "text": "Of Course!"},
+		{"name":"Worker", "text": "Thanks for helping me!"}
+	],
+	[
+		{"name":"You", "text": "Why are you crying?"},
+		{"name":"Queen", "text": "My husband has been kidnapped"},
+		{"name":"You", "text": "That's horrible! Do you now where he is ?"},
+		{"name":"Queen", "text": "Yes, he was taken inside this cave, it's too dangerous"},
+		{"name":"You", "text": "Don't worry, i will resuce him!"},
+		{"name":"Queen", "text": "Be careful!"},
+		{"name":"Worker", "text": "Thanks for saving my husband!"}
+	],
+	[
+		{"name":"King", "text": "Agh... i'm hurt..."},
+		{"name":"You", "text": "Come King, follow me!"},
+		{"name":"King", "text": "Okay..."},
+		{"name":"King", "text": "Thanks for saving me!!"}
+	]
+]

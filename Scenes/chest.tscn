@@ -1,0 +1,158 @@
+[gd_scene load_steps=21 format=3 uid="uid://mannurnoxvuj"]
+
+[ext_resource type="Script" path="res://Scripts/chest.gd" id="1_2f18m"]
+[ext_resource type="Texture2D" uid="uid://b3rwadklw8ugf" path="res://Art/Chest_Closed.png" id="1_61csi"]
+[ext_resource type="Texture2D" uid="uid://ci4tk6o3mfej1" path="res://Art/Chest_Open_Empty.png" id="2_5l53b"]
+[ext_resource type="Texture2D" uid="uid://kkortoajblq4" path="res://Art/Chest_Open_Filled.png" id="3_nn0bn"]
+[ext_resource type="PackedScene" uid="uid://dn2dfus837chg" path="res://Scenes/chest_inventory.tscn" id="6_2bx5s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mpwrm"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74wby"]
+radius = 20.0998
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxw5g"]
+atlas = ExtResource("1_61csi")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5brl"]
+atlas = ExtResource("1_61csi")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af8r6"]
+atlas = ExtResource("1_61csi")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ct0y"]
+atlas = ExtResource("1_61csi")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdcqm"]
+atlas = ExtResource("1_61csi")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5jmq"]
+atlas = ExtResource("1_61csi")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa4b6"]
+atlas = ExtResource("1_61csi")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofytd"]
+atlas = ExtResource("2_5l53b")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lr16"]
+atlas = ExtResource("3_nn0bn")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0uhb"]
+atlas = ExtResource("3_nn0bn")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7eb8"]
+atlas = ExtResource("3_nn0bn")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aphul"]
+atlas = ExtResource("3_nn0bn")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0flq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxw5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5brl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af8r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ct0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdcqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5jmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa4b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa4b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa4b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa4b6")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofytd")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lr16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0uhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7eb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aphul")
+}],
+"loop": false,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[node name="Chest" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_2f18m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_mpwrm")
+
+[node name="open area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="open area"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_74wby")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0flq0")
+animation = &"closed"
+autoplay = "closed"
+frame_progress = 0.789575
+
+[node name="Chest Inventory" parent="." instance=ExtResource("6_2bx5s")]
+z_index = 3
+offset_left = -36.0
+offset_top = -32.0
+offset_right = 54.0
+offset_bottom = 33.0
+
+[connection signal="collect_items" from="." to="Chest Inventory" method="_on_chest_collect_items"]
+[connection signal="inv" from="." to="Chest Inventory" method="_on_chest_inv"]
+[connection signal="body_entered" from="open area" to="." method="_on_open_area_body_entered"]
+[connection signal="body_exited" from="open area" to="." method="_on_open_area_body_exited"]
+[connection signal="empty" from="Chest Inventory" to="." method="_on_chest_inventory_empty"]

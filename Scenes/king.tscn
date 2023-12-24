@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://n2857ld2y58l"]
+
+[ext_resource type="PackedScene" uid="uid://bi8nnqtsc5t0y" path="res://Scenes/npc.tscn" id="1_7g7tq"]
+[ext_resource type="Texture2D" uid="uid://b56duyxb6fcjr" path="res://Art/King/King_Idle_1.png" id="2_2r8bu"]
+[ext_resource type="Script" path="res://Scripts/king.gd" id="2_q63w1"]
+[ext_resource type="Texture2D" uid="uid://bqkacve4unfce" path="res://Art/King/King_Idle_2.png" id="3_seacs"]
+[ext_resource type="Texture2D" uid="uid://b0wy1hhqb2j7w" path="res://Art/King/King_Idle_3.png" id="4_4vk7g"]
+[ext_resource type="Texture2D" uid="uid://btghiqmkewf78" path="res://Art/King/King_Idle_4.png" id="5_hiju2"]
+[ext_resource type="Texture2D" uid="uid://dcqxulhuxwvq8" path="res://Art/King/King_Walk_1.png" id="6_1wl8y"]
+[ext_resource type="Texture2D" uid="uid://byfl48sdxf8dh" path="res://Art/King/King_Walk_2.png" id="7_qogu8"]
+[ext_resource type="Texture2D" uid="uid://boa6mg1bo3uaw" path="res://Art/King/King_Walk_3.png" id="8_5f1q7"]
+[ext_resource type="Texture2D" uid="uid://ct7hmki7fwhv8" path="res://Art/King/King_Walk_4.png" id="9_3o81w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjhvr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2r8bu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_seacs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4vk7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hiju2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1wl8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qogu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5f1q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3o81w")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="king" instance=ExtResource("1_7g7tq")]
+script = ExtResource("2_q63w1")
+quest_item = null
+player_inv = null
+quest_num = Array[int]([])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_qjhvr")
+animation = &"walk"
+frame_progress = 0.544054

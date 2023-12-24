@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqex8qlhf06a4"]
+
+[ext_resource type="Texture2D" uid="uid://cd6qusjnekuev" path="res://Art/Mini_Dungeon_v1.0/Tilesets/DoubleDoor.png" id="1_bp1dj"]
+[ext_resource type="Script" path="res://Scripts/wooden_door.gd" id="1_byjym"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwv4u"]
+atlas = ExtResource("1_bp1dj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ogrh"]
+atlas = ExtResource("1_bp1dj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pfsl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwv4u")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ogrh")
+}],
+"loop": false,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpj8r"]
+radius = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36epu"]
+radius = 2.0
+height = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_veirw"]
+radius = 22.0227
+
+[node name="wooden door" type="StaticBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_byjym")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7pfsl")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="closed" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_wpj8r")
+
+[node name="opened" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-14, 3)
+shape = SubResource("CapsuleShape2D_36epu")
+disabled = true
+
+[node name="opened2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(15, 3)
+shape = SubResource("CapsuleShape2D_36epu")
+disabled = true
+
+[node name="interact area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact area"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_veirw")
+
+[connection signal="body_entered" from="interact area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact area" to="." method="_on_interact_area_body_exited"]

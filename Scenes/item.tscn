@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://if0abeog3kor"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_t20ag"]
+
+[node name="item" type="StaticBody2D"]
+script = ExtResource("1_t20ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="pickup area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup area"]
