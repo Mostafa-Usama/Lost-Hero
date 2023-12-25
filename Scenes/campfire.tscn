@@ -1,46 +1,39 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi4wiv1s24u33"]
+[gd_scene load_steps=11 format=3 uid="uid://bi4wiv1s24u33"]
 
-[ext_resource type="Texture2D" uid="uid://c8vrx0jl2b0ah" path="res://Art/Campfire36.png" id="1_nt7pk"]
+[ext_resource type="Texture2D" uid="uid://b3tkv2lluxqxw" path="res://Art/free_campfire.png" id="1_0p18s"]
 [ext_resource type="Texture2D" uid="uid://dnpn78pi7mk53" path="res://Art/white.png" id="2_rcu0e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tvkw4"]
-atlas = ExtResource("1_nt7pk")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbqir"]
+atlas = ExtResource("1_0p18s")
+region = Rect2(0, 64, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yqgeh"]
-atlas = ExtResource("1_nt7pk")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h14gs"]
+atlas = ExtResource("1_0p18s")
+region = Rect2(16, 64, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wsh6r"]
-atlas = ExtResource("1_nt7pk")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mc3fs"]
-atlas = ExtResource("1_nt7pk")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb5s8"]
+atlas = ExtResource("1_0p18s")
+region = Rect2(32, 64, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dcbba"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tvkw4")
+"texture": SubResource("AtlasTexture_kbqir")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yqgeh")
+"texture": SubResource("AtlasTexture_h14gs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wsh6r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mc3fs")
+"texture": SubResource("AtlasTexture_jb5s8")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khn5q"]
-radius = 8.06226
+radius = 7.24356
 
 [sub_resource type="Gradient" id="Gradient_fai6l"]
 colors = PackedColorArray(0.309385, 0.309385, 0.309385, 1, 0.603923, 0.603923, 0.603923, 1)
@@ -58,16 +51,20 @@ scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_50bj8")
 
 [node name="campfire" type="StaticBody2D"]
+z_index = 1
+scale = Vector2(1.8, 1.8)
 collision_layer = 2
 collision_mask = 17
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0.555556, -5.55556)
 sprite_frames = SubResource("SpriteFrames_dcbba")
 autoplay = "default"
-frame_progress = 0.0833333
+frame_progress = 0.539596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 9)
+position = Vector2(-0.555556, 4.44444)
 shape = SubResource("CircleShape2D_khn5q")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -76,3 +73,17 @@ position = Vector2(1, -12)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_pfef5")
 texture = ExtResource("2_rcu0e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+rotation = 2.35619
+texture = ExtResource("1_0p18s")
+region_enabled = true
+region_rect = Rect2(0, 18.5448, 13.9057, 14.8352)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(0.555556, 1.11111)
+rotation = 0.785398
+texture = ExtResource("1_0p18s")
+region_enabled = true
+region_rect = Rect2(0, 18.5448, 13.9057, 14.8352)

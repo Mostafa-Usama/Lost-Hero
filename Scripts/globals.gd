@@ -7,9 +7,11 @@ var playerCurrentHealth = 10
 var currentXp = 0
 var maxXP = 10
 var currentLevel = 1
-var damage
+var minDamage = 2
+var maxDamage = 3
 var maxHunger = 100
 var hunger = 100
+var critChance = 0.1
 func _process(_delta):
 	if currentXp >= maxXP:
 		level_up()
@@ -19,6 +21,10 @@ func _process(_delta):
 		hunger = maxHunger
 	
 func level_up():
+	minDamage = round(minDamage * 1.4)
+	maxDamage = round(maxDamage * 1.4)
+	if currentLevel % 2 == 0:
+		critChance += 0.1
 	playerMaxHealth += 5
 	playerCurrentHealth = playerMaxHealth
 	currentXp = currentXp - maxXP 

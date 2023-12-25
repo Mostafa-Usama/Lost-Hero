@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkulbbnjo4n54"
-path="res://.godot/imported/survivalgame-trees.png-252b2eab4c9fb742faa99b9e38fe9fa0.ctex"
+uid="uid://dimhddgodwqer"
+path="res://.godot/imported/inventory-slot.png-f8c17f8dbe5a93a8eb1d74d5ccb38cb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/survivalgame-trees.png"
-dest_files=["res://.godot/imported/survivalgame-trees.png-252b2eab4c9fb742faa99b9e38fe9fa0.ctex"]
+source_file="res://Art/UI/inventory-slot.png"
+dest_files=["res://.godot/imported/inventory-slot.png-f8c17f8dbe5a93a8eb1d74d5ccb38cb2.ctex"]
 
 [params]
 

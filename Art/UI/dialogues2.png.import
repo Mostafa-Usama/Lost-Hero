@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pekick5kra33"
-path="res://.godot/imported/pinpng.com-rectangle-border-png-154030.png-440dc0c6ebcea054af8b888351fe68c8.ctex"
+uid="uid://dxpr2evgi2ujn"
+path="res://.godot/imported/dialogues2.png-f9112e3832affd17f8951cd6d9b406ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/pinpng.com-rectangle-border-png-154030.png"
-dest_files=["res://.godot/imported/pinpng.com-rectangle-border-png-154030.png-440dc0c6ebcea054af8b888351fe68c8.ctex"]
+source_file="res://Art/UI/dialogues2.png"
+dest_files=["res://.godot/imported/dialogues2.png-f9112e3832affd17f8951cd6d9b406ab.ctex"]
 
 [params]
 

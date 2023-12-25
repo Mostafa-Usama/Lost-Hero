@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkulbbnjo4n54"
-path="res://.godot/imported/survivalgame-trees.png-252b2eab4c9fb742faa99b9e38fe9fa0.ctex"
+uid="uid://c0pmvhvbh77lu"
+path="res://.godot/imported/2.png-92e261e2e97d050fdb21a1acd3a7e7d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/survivalgame-trees.png"
-dest_files=["res://.godot/imported/survivalgame-trees.png-252b2eab4c9fb742faa99b9e38fe9fa0.ctex"]
+source_file="res://level up/2.png"
+dest_files=["res://.godot/imported/2.png-92e261e2e97d050fdb21a1acd3a7e7d5.ctex"]
 
 [params]
 

@@ -1,11 +1,14 @@
-[gd_scene load_steps=79 format=3 uid="uid://ctd7qwvwca2di"]
+[gd_scene load_steps=82 format=3 uid="uid://ctd7qwvwca2di"]
 
 [ext_resource type="Texture2D" uid="uid://28gohab1d031" path="res://Art/survivalgame-player-green.png" id="1_ey36y"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gbu07"]
 [ext_resource type="Resource" uid="uid://cgonjbihx3h4" path="res://inventory/inventories/player_inventory.tres" id="2_5wi18"]
 [ext_resource type="PackedScene" uid="uid://c1u4djswo2bus" path="res://Scenes/inventory_ui.tscn" id="4_op7yf"]
 [ext_resource type="PackedScene" uid="uid://teyee0j06frd" path="res://Scenes/ui.tscn" id="5_jwjym"]
-[ext_resource type="Texture2D" uid="uid://bc30nf5m52a4g" path="res://Art/loot_indicator_yellow.png" id="6_6mmic"]
+[ext_resource type="Texture2D" uid="uid://df3ldiyjdptum" path="res://level up/1.png" id="6_qd4xc"]
+[ext_resource type="Texture2D" uid="uid://c0pmvhvbh77lu" path="res://level up/2.png" id="7_imn66"]
+[ext_resource type="Texture2D" uid="uid://b8tv7aeux3y6e" path="res://level up/3.png" id="8_ffpt0"]
+[ext_resource type="Texture2D" uid="uid://b0ogi8swpn3fk" path="res://level up/4.png" id="9_5wsk0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0k4l7"]
 atlas = ExtResource("1_ey36y")
@@ -551,139 +554,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ndxj7"]
 radius = 6.0
 
-[sub_resource type="Animation" id="Animation_k7bru"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Level up effect/LootIndicatorYellow:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 7)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Level up effect/LootIndicatorYellow2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8, 5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Level up effect/LootIndicatorYellow3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Level up effect/LootIndicatorYellow4:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-7, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_s0t80"]
-resource_name = "level_up"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Level up effect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -14), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Level up effect:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Level up effect/LootIndicatorYellow:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-7, 8), Vector2(1, 4), Vector2(6, 2)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Level up effect/LootIndicatorYellow2:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 10), Vector2(8, 5), Vector2(2, -2)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Level up effect/LootIndicatorYellow3:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.1, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(7, 7), Vector2(1, 0), Vector2(-6, 2)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Level up effect/LootIndicatorYellow4:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.1, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-7, 2), Vector2(0, 9)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2v24"]
-_data = {
-"RESET": SubResource("Animation_k7bru"),
-"level_up": SubResource("Animation_s0t80")
-}
-
 [sub_resource type="Gradient" id="Gradient_cdgbw"]
 colors = PackedColorArray(1, 0.188235, 0, 1, 1, 0.572549, 0, 1)
 
@@ -698,6 +568,59 @@ linear_accel_min = 5.75
 linear_accel_max = 16.44
 scale_max = 1.8
 color_ramp = SubResource("GradientTexture1D_8hwkv")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_unc5s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qd4xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_imn66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ffpt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5wsk0")
+}],
+"loop": true,
+"name": &"level_up",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_k06q1"]
+resource_name = "level_up"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level up effect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.19209e-07, 7), Vector2(0, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level up effect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42lbo"]
+_data = {
+"level_up": SubResource("Animation_k06q1")
+}
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 62
@@ -734,38 +657,23 @@ offset_top = -81.0
 offset_right = 45.0
 offset_bottom = -16.0
 
-[node name="Level up effect" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-metadata/_edit_group_ = true
-
-[node name="LootIndicatorYellow" type="Sprite2D" parent="Level up effect"]
-position = Vector2(1, 7)
-scale = Vector2(0.609375, 0.5)
-texture = ExtResource("6_6mmic")
-
-[node name="LootIndicatorYellow2" type="Sprite2D" parent="Level up effect"]
-position = Vector2(8, 5)
-scale = Vector2(0.609375, 0.5)
-texture = ExtResource("6_6mmic")
-
-[node name="LootIndicatorYellow3" type="Sprite2D" parent="Level up effect"]
-position = Vector2(1, 0)
-scale = Vector2(0.609375, 0.5)
-texture = ExtResource("6_6mmic")
-
-[node name="LootIndicatorYellow4" type="Sprite2D" parent="Level up effect"]
-z_index = -1
-position = Vector2(-7, 2)
-scale = Vector2(0.609375, 0.5)
-texture = ExtResource("6_6mmic")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_p2v24")
-}
-
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3)
 emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_0or4h")
+
+[node name="Level up effect" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 1, 1, 0)
+z_index = -1
+position = Vector2(0, -5)
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_unc5s")
+animation = &"level_up"
+autoplay = "level_up"
+frame_progress = 0.508563
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_42lbo")
+}

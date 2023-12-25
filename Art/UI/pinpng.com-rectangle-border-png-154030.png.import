@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkulbbnjo4n54"
-path="res://.godot/imported/survivalgame-trees.png-252b2eab4c9fb742faa99b9e38fe9fa0.ctex"
+uid="uid://pekick5kra33"
+path="res://.godot/imported/pinpng.com-rectangle-border-png-154030.png-5b78c8ae3ee7ce37a1940a72d6422dfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/survivalgame-trees.png"
-dest_files=["res://.godot/imported/survivalgame-trees.png-252b2eab4c9fb742faa99b9e38fe9fa0.ctex"]
+source_file="res://Art/UI/pinpng.com-rectangle-border-png-154030.png"
+dest_files=["res://.godot/imported/pinpng.com-rectangle-border-png-154030.png-5b78c8ae3ee7ce37a1940a72d6422dfc.ctex"]
 
 [params]
 

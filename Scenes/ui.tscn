@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://teyee0j06frd"]
+[gd_scene load_steps=14 format=3 uid="uid://teyee0j06frd"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_375ff"]
 [ext_resource type="Texture2D" uid="uid://cqhlgln718blu" path="res://Art/gold-coin-icon-512x512-ehq45y6s.png" id="1_o5l5j"]
-[ext_resource type="Texture2D" uid="uid://bsqc1yowibfn" path="res://Art/bg.png" id="3_isabu"]
-[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/over.png" id="4_g1ylc"]
-[ext_resource type="Texture2D" uid="uid://dxg5t8vh4ydt3" path="res://Art/progress.png" id="4_qlpyx"]
-[ext_resource type="Texture2D" uid="uid://dimhddgodwqer" path="res://Art/inventory-slot.png" id="6_o5i4a"]
-[ext_resource type="Texture2D" uid="uid://c6xpge21po588" path="res://Art/inventory-background.png" id="7_2qvtf"]
+[ext_resource type="Texture2D" uid="uid://bsqc1yowibfn" path="res://Art/UI/bg.png" id="3_d5fij"]
+[ext_resource type="Texture2D" uid="uid://c7r5bb2bh5ib2" path="res://Art/UI/green.png" id="4_lqqhb"]
+[ext_resource type="Texture2D" uid="uid://nitl48h37hwr" path="res://Art/UI/01 Border 03.png" id="5_5f6qw"]
+[ext_resource type="Texture2D" uid="uid://c7hwkqqb1ta6y" path="res://Art/UI/blue.png" id="6_m43i2"]
+[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/UI/over.png" id="7_sucay"]
+[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/UI/pinpng.com-rectangle-border-png-154030.png" id="8_b38ux"]
 [ext_resource type="Texture2D" uid="uid://doeuasnotmoei" path="res://Art/survivalgame-player-green-character.png" id="8_c5skk"]
-[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/pinpng.com-rectangle-border-png-154030.png" id="9_vm4sa"]
-[ext_resource type="Texture2D" uid="uid://ddanrrjib3s8u" path="res://Art/output-onlinepngtools.png" id="10_70yj5"]
-[ext_resource type="Texture2D" uid="uid://donb7qs0ykxgw" path="res://Art/thirst.png" id="11_wnrr7"]
-[ext_resource type="Texture2D" uid="uid://crkfene8qsi86" path="res://Art/up.png" id="12_4jk3c"]
+[ext_resource type="Texture2D" uid="uid://s1p22sc3eiqq" path="res://Art/UI/red.png" id="9_08nfs"]
+[ext_resource type="Texture2D" uid="uid://ddanrrjib3s8u" path="res://Art/UI/output-onlinepngtools.png" id="10_wltqx"]
+[ext_resource type="Texture2D" uid="uid://bl1ft2o63b1x8" path="res://Art/UI/thirst.png" id="11_asxt2"]
+[ext_resource type="Texture2D" uid="uid://crkfene8qsi86" path="res://Art/UI/up.png" id="12_d386m"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_375ff")
@@ -66,27 +67,30 @@ anchor_right = 0.63
 anchor_bottom = 0.86
 offset_left = -0.23999
 offset_top = 41.176
-offset_right = 0.239929
-offset_bottom = 40.72
+offset_right = 0.23999
+offset_bottom = 64.72
 grow_horizontal = 2
 grow_vertical = 2
 max_value = 10.0
+value = 5.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_isabu")
-texture_over = ExtResource("4_g1ylc")
-texture_progress = ExtResource("4_qlpyx")
+texture_under = ExtResource("3_d5fij")
+texture_progress = ExtResource("4_lqqhb")
 
 [node name="Health" type="Label" parent="Health/Health bar"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.75
-offset_left = -17.0
-offset_right = 17.0
-offset_bottom = 7.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -23.0
+offset_right = 16.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 text = "5/10"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -105,48 +109,25 @@ anchors_preset = -1
 anchor_top = 0.852
 anchor_right = 0.142
 anchor_bottom = 1.0
-offset_top = -48.096
+offset_left = 112.0
+offset_top = 6.90399
 offset_right = 105.416
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("7_2qvtf")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
+texture = ExtResource("5_5f6qw")
 
 [node name="Level label" type="Label" parent="Character/NinePatchRect"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.449
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 0.0359955
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.5
+offset_top = 5.0
+offset_right = 29.5
+offset_bottom = 28.0
+grow_horizontal = 2
 text = "Level: 1"
 horizontal_alignment = 1
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Character/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 106.0
-grow_vertical = 2
-texture = ExtResource("6_o5i4a")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="Character icon" type="TextureRect" parent="Character/NinePatchRect/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_c5skk")
 
 [node name="XP bar" type="TextureProgressBar" parent="Character/NinePatchRect"]
 layout_mode = 1
@@ -155,34 +136,34 @@ anchor_left = 0.602
 anchor_top = 0.774
 anchor_right = 0.983
 anchor_bottom = 0.958
-offset_left = 0.928116
-offset_top = -19.6439
-offset_right = 211.012
-offset_bottom = -7.80391
+offset_left = -43.514
+offset_top = -15.886
+offset_right = 166.669
+offset_bottom = 4.738
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.7)
 max_value = 10.0
 value = 5.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_isabu")
-texture_over = ExtResource("4_g1ylc")
-texture_progress = ExtResource("9_vm4sa")
+texture_under = ExtResource("3_d5fij")
+texture_progress = ExtResource("6_m43i2")
 texture_progress_offset = Vector2(0, 1.5)
-tint_progress = Color(0, 0.827451, 0.180392, 1)
 
 [node name="XP label" type="Label" parent="Character/NinePatchRect/XP bar"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -78.2609
-offset_top = -5.71429
-offset_right = -78.2609
-offset_bottom = 3.32171
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -16.5
+offset_right = 28.0
+offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1)
+scale = Vector2(1.3, 0.8)
 theme_override_font_sizes/font_size = 30
 text = "5/10"
 horizontal_alignment = 1
@@ -205,9 +186,9 @@ scale = Vector2(0.3, 0.7)
 max_value = 10.0
 value = 5.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_isabu")
-texture_over = ExtResource("4_g1ylc")
-texture_progress = ExtResource("9_vm4sa")
+texture_under = ExtResource("3_d5fij")
+texture_over = ExtResource("7_sucay")
+texture_progress = ExtResource("8_b38ux")
 texture_progress_offset = Vector2(0, 1.5)
 tint_progress = Color(0, 0.647059, 1, 1)
 
@@ -234,33 +215,34 @@ anchor_left = 0.602
 anchor_top = 0.774
 anchor_right = 1.0
 anchor_bottom = 0.958
-offset_left = -0.0720062
-offset_top = -73.01
-offset_right = 206.0
-offset_bottom = -61.17
+offset_left = -43.514
+offset_top = -42.886
+offset_right = 163.0
+offset_bottom = -22.262
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.7)
-value = 50.0
+value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_isabu")
-texture_over = ExtResource("4_g1ylc")
-texture_progress = ExtResource("9_vm4sa")
+texture_under = ExtResource("3_d5fij")
+texture_progress = ExtResource("9_08nfs")
 texture_progress_offset = Vector2(0, 1.5)
 tint_progress = Color(1, 0.0627451, 0.211765, 1)
 
 [node name="Hunger Label" type="Label" parent="Character/NinePatchRect/Hunger Bar"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -78.2609
-offset_top = -5.71429
-offset_right = -78.2609
-offset_bottom = 3.32171
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -15.5
+offset_right = 26.5
+offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1)
+scale = Vector2(1.3, 0.8)
 theme_override_font_sizes/font_size = 30
 text = "5/10"
 horizontal_alignment = 1
@@ -272,13 +254,14 @@ anchor_left = 0.47
 anchor_top = 0.235
 anchor_right = 0.605
 anchor_bottom = 0.5
-offset_left = -3.43001
-offset_top = 0.159996
-offset_right = -3.95003
-offset_bottom = -4.185
+offset_left = -60.79
+offset_top = 11.085
+offset_right = -47.225
+offset_bottom = 6.73999
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_70yj5")
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_wltqx")
 expand_mode = 2
 
 [node name="Thirst Icon" type="TextureRect" parent="Character/NinePatchRect"]
@@ -294,28 +277,52 @@ offset_right = -0.570023
 offset_bottom = -1.54
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_wnrr7")
+texture = ExtResource("11_asxt2")
 expand_mode = 2
 stretch_mode = 5
 
 [node name="XP Icon" type="TextureRect" parent="Character/NinePatchRect"]
-modulate = Color(0, 1, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.47
 anchor_top = 0.757
 anchor_right = 0.572
 anchor_bottom = 1.0
-offset_left = 0.570107
-offset_top = 7.35809
-offset_right = 3.49811
-offset_bottom = 0.413086
+offset_left = -54.79
+offset_top = 28.627
+offset_right = -42.043
+offset_bottom = 21.682
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-texture = ExtResource("12_4jk3c")
+scale = Vector2(2, 2)
+texture = ExtResource("12_d386m")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Character"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 520.0
+offset_right = 122.0
+grow_vertical = 2
+texture = ExtResource("5_5f6qw")
+
+[node name="Character icon" type="TextureRect" parent="Character/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -56.0
+offset_right = 53.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_c5skk")
 
 [node name="hunger timer" type="Timer" parent="."]
 wait_time = 3.0

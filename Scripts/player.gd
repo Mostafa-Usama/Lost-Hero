@@ -6,6 +6,7 @@ var player_state
 var bow_equiped = true
 var canShoot = true
 var arrows = preload("res://Scenes/arrow.tscn")
+var collect_text = preload("res://Scenes/collect_text.tscn")
 var dead = false
 @onready var col = $CollisionShape2D
 
@@ -122,8 +123,12 @@ func player_anim(dir):
 			$AnimatedSprite2D.play("up_left_walk")
 	
 func collect(i: invItem):
+	var Ctext = collect_text.instantiate()
+	Ctext.text = str("+1 " + i.name)
+	add_child(Ctext)
 	player_inventory.insert(i)
-	$Inventory_UI.update_slots()
+	
+	#$Inventory_UI.update_slots()
 
 
 func _on_red_worker_npc_finshed():
