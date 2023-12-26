@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvend75l8xkug"]
+
+[ext_resource type="Texture2D" uid="uid://dc18xflx8d120" path="res://Art/UI/Pixel Heart Sprite Sheet 32x32.png" id="1_ht6fb"]
+[ext_resource type="Script" path="res://Scripts/health_skill.gd" id="1_ygo3h"]
+[ext_resource type="FontFile" uid="uid://d0x2f4vbrip4u" path="res://Font/fibberish.ttf" id="2_lakib"]
+
+[node name="Health Skill" type="VBoxContainer"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 9
+script = ExtResource("1_ygo3h")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="icon" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.31068
+grow_horizontal = 2
+texture = ExtResource("1_ht6fb")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_lakib")
+text = "Max Health"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

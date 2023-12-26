@@ -30,7 +30,8 @@ func _process(_delta):
 			
 		if attacking:
 			if canAttack:
-				player.hit(damage)
+				var dmg = damage - (round(damage * Globals.armor))
+				player.hit(dmg)
 				canAttack = false
 				$Timer.start()
 			

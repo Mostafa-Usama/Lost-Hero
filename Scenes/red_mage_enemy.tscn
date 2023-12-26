@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dei5mo2xavocs" path="res://Art/Characters.png" id="1_jr2es"]
 [ext_resource type="Script" path="res://Scripts/red_mage_enemy.gd" id="1_lk8d8"]
-[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/pinpng.com-rectangle-border-png-154030.png" id="3_6g2lp"]
-[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/over.png" id="4_f821k"]
+[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/UI/pinpng.com-rectangle-border-png-154030.png" id="3_6g2lp"]
+[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/UI/over.png" id="4_f821k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wlp18"]
 radius = 6.08276

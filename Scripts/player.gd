@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 100
+#var speed = 100
 var player_state
 @export var player_inventory: inventory
 var bow_equiped = true
@@ -8,10 +8,12 @@ var canShoot = true
 var arrows = preload("res://Scenes/arrow.tscn")
 var collect_text = preload("res://Scenes/collect_text.tscn")
 var dead = false
+var lvl = 1
 @onready var col = $CollisionShape2D
 
 func _physics_process(_delta):
-	if Globals.currentXp >= Globals.maxXP:
+	if Globals.currentLevel != lvl :
+		lvl = Globals.currentLevel
 		$AnimationPlayer.play("level_up")
 	if Globals.hunger <= 0 and not dead:
 		dead = true
@@ -26,7 +28,7 @@ func _physics_process(_delta):
 				player_state = "walk"
 			player_anim(direction)
 		
-		velocity = direction * speed
+		velocity = direction * Globals.speed
 		move_and_slide()
 		
 		var mos_pos = get_global_mouse_position()

@@ -27,7 +27,8 @@ func _process(_delta):
 			$AnimatedSprite2D.play("attack")
 			canHit= false
 			await get_tree().create_timer(.4).timeout
-			player.hit(damage)
+			var dmg = damage - (round(damage * Globals.armor))
+			player.hit(dmg)
 			await $AnimatedSprite2D.animation_finished
 			move = true
 		elif ray.get_collider() == player and player_around and move :

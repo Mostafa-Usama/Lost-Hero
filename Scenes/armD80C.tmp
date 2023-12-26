@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmgdx6e51gocy"]
+
+[ext_resource type="Script" path="res://Scripts/armor_skill.gd" id="1_f35fm"]
+[ext_resource type="Texture2D" uid="uid://qja53yrqigr7" path="res://Art/UI/armor.png" id="1_reut8"]
+[ext_resource type="FontFile" uid="uid://d0x2f4vbrip4u" path="res://Font/fibberish.ttf" id="2_v5im0"]
+
+[node name="armor_skill" type="VBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_f35fm")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+texture = ExtResource("1_reut8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v5im0")
+text = "Armor"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

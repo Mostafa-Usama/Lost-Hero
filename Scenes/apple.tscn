@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://if0abeog3kor" path="res://Scenes/item.tscn" id="1_fe46k"]
 [ext_resource type="Script" path="res://Scripts/apple.gd" id="1_mnfq3"]
 [ext_resource type="Resource" uid="uid://dvhq4jsigiivr" path="res://inventory/items/Apple.tres" id="2_5owgj"]
-[ext_resource type="Texture2D" uid="uid://vq34aq1fl4id" path="res://Art/apple-icon.png" id="3_pejhl"]
+[ext_resource type="Texture2D" uid="uid://c01mhbpo3rxo2" path="res://Art/apple_regular_30_30px.png" id="4_tfnc0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j1s46"]
 radius = 5.09902
@@ -50,7 +50,8 @@ script = ExtResource("1_mnfq3")
 itemType = ExtResource("2_5owgj")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_pejhl")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_tfnc0")
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_j1s46")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://di31d6tsiqlaf"]
+
+[ext_resource type="Texture2D" uid="uid://snp5nkkctfut" path="res://Art/UI/vecteezy_thunderbolt-pixel-icon_10966362-removebg-preview.png" id="1_ge7p0"]
+[ext_resource type="Script" path="res://Scripts/speed_skill.gd" id="1_gencw"]
+[ext_resource type="FontFile" uid="uid://d0x2f4vbrip4u" path="res://Font/fibberish.ttf" id="2_3d8ps"]
+
+[node name="Speed Skill" type="VBoxContainer"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_gencw")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="icon" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.38835
+grow_horizontal = 2
+texture = ExtResource("1_ge7p0")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_3d8ps")
+text = " Speed"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

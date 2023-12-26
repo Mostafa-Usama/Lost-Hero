@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Scripts/slime_enemy.gd" id="1_awe87"]
 [ext_resource type="Resource" uid="uid://dqd3t52xv1v4p" path="res://inventory/items/slime.tres" id="2_uvmwf"]
 [ext_resource type="PackedScene" uid="uid://cmcwi35ydguca" path="res://Scenes/slime_loot.tscn" id="3_6gmkp"]
-[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/pinpng.com-rectangle-border-png-154030.png" id="5_o4wt4"]
-[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/over.png" id="6_mnjgh"]
+[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/UI/pinpng.com-rectangle-border-png-154030.png" id="5_o4wt4"]
+[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/UI/over.png" id="6_mnjgh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_674fv"]
 radius = 11.0454

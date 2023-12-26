@@ -35,7 +35,8 @@ func _process(_delta):
 			if canAttack:
 
 				attatck_anim(direction_anim)
-				player.hit(damage)
+				var dmg = damage - (round(damage * Globals.armor))
+				player.hit(dmg)
 				canAttack = false
 				$Timer.start()
 			

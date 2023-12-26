@@ -35,10 +35,10 @@ autostart = true
 [node name="move" type="Timer" parent="."]
 
 [node name="Dialogue" parent="." instance=ExtResource("3_glr84")]
-offset_left = -28.0
-offset_top = -60.0
-offset_right = 12.0
-offset_bottom = -20.0
+offset_left = -34.0
+offset_top = -79.0
+offset_right = 6.0
+offset_bottom = -39.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="finshed" from="." to="Dialogue" method="_on_red_worker_npc_finshed"]

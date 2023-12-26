@@ -3,6 +3,7 @@ extends Node2D
 var player_cam
 var day = true
 var dungeon = false
+var rainChance = 0.2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_cam = get_child(1, true).get_child(2) as Camera2D
@@ -27,7 +28,10 @@ func _on_day_cycle_timeout():
 	
 	if day:
 		$AnimationPlayer.play("day cycle")
-	else: 
+		if randf() <= rainChance:
+			$Rain/CPUParticles2D.emitting = true
+	else:
+		$Rain/CPUParticles2D.emitting = false
 		$AnimationPlayer.play_backwards("day cycle")
 	day = !day
 

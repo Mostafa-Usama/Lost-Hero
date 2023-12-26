@@ -7,6 +7,7 @@ var current_dialogue:int
 var active = false
 signal finshed
 var quest_done= false
+var finish = false
 
 func _ready():
 	visible = false
@@ -27,19 +28,17 @@ func load_dialogue():
 	
 func _input(event):
 	if active:
-		if event.is_action_pressed("action"):
+		if event.is_action_pressed("action") and finish:
 			next_script()
-			
+		elif event.is_action_pressed("action") and not finish:
+			$Background/RichTextLabel2.visible_characters = len(dialogue[quest_num][current_dialogue]["text"])
+
 func next_script():
 	if quest_done:
-		#if current_dialogue != len(dialogue) - 1:
-			#current_dialogue = len(dialogue) - 1
-			#active = false
-			#visible = false
-			#return
 		current_dialogue = len(dialogue[quest_num]) - 1
 		$Background/RichTextLabel.text = dialogue[quest_num][current_dialogue]["name"]
 		$Background/RichTextLabel2.text = dialogue[quest_num][current_dialogue]["text"]
+		$Background/RichTextLabel2.visible_characters = len(dialogue[quest_num][current_dialogue]["text"])
 		#current_dialogue+=1
 		active = true
 		visible = true
@@ -50,17 +49,23 @@ func next_script():
 		active = false
 		visible = false
 		return
-	
+		
+
+	finish = false
 	$Background/RichTextLabel.text = dialogue[quest_num][current_dialogue]["name"]
 	$Background/RichTextLabel2.text = dialogue[quest_num][current_dialogue]["text"]
+	$Background/RichTextLabel2.visible_characters = 0
+	
+	while $Background/RichTextLabel2.visible_characters < len($Background/RichTextLabel2.text):
+		$Background/RichTextLabel2.visible_characters += 1
+		if not active:
+			finish = true
+			print("here")
+			return
+		await get_tree().create_timer(.03).timeout
+		#print(	$Background/RichTextLabel2.visible_characters)
+	finish = true
 	current_dialogue += 1
-
-
-
-func _on_visibility_changed():
-	if not visible:
-		current_dialogue = 0
-		active = false
 
 
 func _on_red_worker_npc_finshed():
@@ -69,3 +74,9 @@ func _on_red_worker_npc_finshed():
 
 func _on_red_worker_npc_num(number):
 	quest_num = number
+
+
+func _on_hidden():
+	current_dialogue = 0
+	active = false
+

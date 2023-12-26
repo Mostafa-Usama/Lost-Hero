@@ -32,8 +32,6 @@ func _process(_delta):
 		if player_state == "idle" or talking:
 			ani.play("idle")
 	
-
-	
 	#if player_state == "walking" and not talking:
 		#if direction == Vector2.RIGHT:
 			#ani.play("walk_right")
@@ -45,7 +43,12 @@ func _process(_delta):
 			#ani.play("walk_down")
 		#velocity = direction * speed
 		#move_and_slide()
-	if player_around and Input.is_action_just_pressed("action") and not talking:
+
+func quest():
+	return  player_inv.use(quest_item, amount)
+
+func _input(event):
+	if event.is_action_pressed("action") and not talking and player_around:
 		if talked:
 			if (not quest_finished) and quest():
 				Globals.currentXp += xp
@@ -55,17 +58,11 @@ func _process(_delta):
 		finished_talking = false
 		talked = true	
 		talking = true
-		
 		$Dialogue.start() 
-
-func quest():
-	return  player_inv.use(quest_item, amount)
-
-func _input(event):
-	if event.is_action_pressed("action") and finished_talking and player_around:
-		#print("sfsf")
+		
+	elif event.is_action_pressed("action") and finished_talking :
 		talking = false
-			
+		
 #func _on_timer_timeout():
 	#direction = dir.pick_random()
 	#player_state = "walking"
@@ -84,6 +81,8 @@ func _on_interact_area_body_exited(_body):
 	player_around = false
 	talking = false
 	$Dialogue.visible = false
+	$Dialogue.active =  false
+	$Dialogue.current_dialogue = 0
 
 func _on_dialogue_finshed():
 	finished_talking = true

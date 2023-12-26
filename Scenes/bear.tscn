@@ -7,8 +7,8 @@
 [ext_resource type="Resource" uid="uid://mki54nypeoxx" path="res://inventory/items/meat.tres" id="2_g0gyq"]
 [ext_resource type="Texture2D" uid="uid://ckp1nw4ruwgi4" path="res://Art/bear_attack.png" id="2_xtxsv"]
 [ext_resource type="Texture2D" uid="uid://docqqa0unrpwr" path="res://Art/meat_icon.png" id="6_nagve"]
-[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/pinpng.com-rectangle-border-png-154030.png" id="8_lg3uk"]
-[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/over.png" id="9_3yqro"]
+[ext_resource type="Texture2D" uid="uid://pekick5kra33" path="res://Art/UI/pinpng.com-rectangle-border-png-154030.png" id="8_lg3uk"]
+[ext_resource type="Texture2D" uid="uid://dmjgc06tioghs" path="res://Art/UI/over.png" id="9_3yqro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek00s"]
 atlas = ExtResource("2_dp6x6")

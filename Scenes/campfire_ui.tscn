@@ -1,0 +1,168 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3dbi2r400lkw"]
+
+[ext_resource type="Texture2D" uid="uid://nitl48h37hwr" path="res://Art/UI/01 Border 03.png" id="1_udhsq"]
+[ext_resource type="Texture2D" uid="uid://dxpr2evgi2ujn" path="res://Art/UI/dialogues2.png" id="2_kba7k"]
+[ext_resource type="FontFile" uid="uid://d0x2f4vbrip4u" path="res://Font/fibberish.ttf" id="3_o2b5k"]
+[ext_resource type="Texture2D" uid="uid://docqqa0unrpwr" path="res://Art/meat_icon.png" id="4_y0u6r"]
+[ext_resource type="Texture2D" uid="uid://c7gf7nxo8pxxj" path="res://Art/log.png" id="5_tdqc3"]
+
+[node name="Campfire UI" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.266
+anchor_top = 0.202
+anchor_right = 0.766
+anchor_bottom = 0.719
+offset_left = 0.567993
+offset_top = 0.103989
+offset_right = -0.432007
+offset_bottom = 0.0879822
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_udhsq")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect"]
+self_modulate = Color(1, 0.552941, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.009
+anchor_right = 0.993
+anchor_bottom = 0.991
+offset_left = -0.0250001
+offset_top = -0.0150001
+offset_right = 0.0249634
+offset_bottom = 0.0149841
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kba7k")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="title" type="NinePatchRect" parent="NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.307
+anchor_top = -0.073
+anchor_right = 0.691
+anchor_bottom = 0.182
+offset_left = -0.0690002
+offset_top = 0.0170021
+offset_right = 0.202972
+offset_bottom = 0.121998
+grow_horizontal = 2
+texture = ExtResource("1_udhsq")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="title label" type="Label" parent="NinePatchRect/NinePatchRect/title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -13.5
+offset_right = 49.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_o2b5k")
+theme_override_font_sizes/font_size = 30
+text = "Campfire"
+
+[node name="recipe label" type="Label" parent="NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.049
+anchor_top = 0.243
+anchor_right = 0.205
+anchor_bottom = 0.32
+offset_left = 0.216999
+offset_top = 0.0529938
+offset_right = -39.235
+offset_bottom = -11.28
+scale = Vector2(1.8, 1.8)
+theme_override_fonts/font = ExtResource("3_o2b5k")
+text = "Recipes:"
+
+[node name="recipes container" type="VBoxContainer" parent="NinePatchRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.35
+anchor_right = 0.808
+anchor_bottom = 0.982
+offset_top = -0.150009
+offset_right = -0.136017
+offset_bottom = -0.0780029
+
+[node name="recipe" type="HBoxContainer" parent="NinePatchRect/NinePatchRect/recipes container"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="NinePatchRect/NinePatchRect/recipes container/recipe"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.45
+alignment = 1
+
+[node name="name" type="Label" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.66
+theme_override_font_sizes/font_size = 25
+text = "Tasty Meat"
+horizontal_alignment = 1
+
+[node name="requirements" type="HBoxContainer" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer/VBoxContainer/requirements"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "1 Meat"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer/VBoxContainer/requirements"]
+layout_mode = 2
+texture = ExtResource("4_y0u6r")
+
+[node name="Label3" type="Label" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer/VBoxContainer/requirements"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "1 Wood"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer/VBoxContainer/requirements"]
+layout_mode = 2
+texture = ExtResource("5_tdqc3")
+
+[node name="recipe icon" type="TextureRect" parent="NinePatchRect/NinePatchRect/recipes container/recipe/Button/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_y0u6r")

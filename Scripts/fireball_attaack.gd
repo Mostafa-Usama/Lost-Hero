@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed = 200
-var damage = 1
+var damage = 3
 var type = "fire"
 var hit = false
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +22,8 @@ func _on_body_entered(body):
 	hit = true
 	global_rotation += 90
 	if body.has_method("hit"):
-		body.hit(damage, type)
+		var dmg = damage - (round(damage * Globals.armor))
+		body.hit(dmg, type)
 	$Sprite2D.play("explode")
 	await $Sprite2D.animation_finished
 	queue_free()

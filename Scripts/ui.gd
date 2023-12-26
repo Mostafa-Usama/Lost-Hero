@@ -2,13 +2,20 @@ extends CanvasLayer
 
 var coins_opened = false
 @onready var coins =$coins
+var lvl = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	coins.visible = false
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	if Globals.currentLevel != lvl :
+		lvl = Globals.currentLevel
+		$"Character/Level Up Button".visible = true
+		$"Character/Level Up Button".disabled = false
+	
 	if Input.is_action_just_released("open"):
 		coins.visible = !coins_opened
 		coins_opened = !coins_opened 
@@ -28,3 +35,7 @@ func _process(_delta):
 
 func _on_hunger_timer_timeout():
 	Globals.hunger -= 1
+
+
+func _on_level_up_button_pressed():
+	$"level up".visible = true

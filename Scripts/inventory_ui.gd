@@ -5,7 +5,7 @@ var opened = false
 @onready var slots: Array = $Background/GridContainer.get_children()
 @onready var itemGuiInstance = preload("res://Scenes/ItemGui.tscn")
 # Called when the node enters the scene tree for the first time.
-
+var itemInHand : item_gui
 func update_slots():
 	for i in range(_inventory.slots.size()):
 		if (_inventory.slots[i].item):
@@ -24,15 +24,12 @@ func _ready():
 func connectSlots():
 	
 	for i in range(slots.size()):
-		var call = Callable(_on_slot_gui_input)
-		call = call.bind(_inventory.slots[i],slots[i], i)
-		slots[i].gui_input.connect(call)
+		var callable = Callable(_on_slot_gui_input)
+		callable = callable.bind(_inventory.slots[i],slots[i], i)
+		slots[i].gui_input.connect(callable)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#for i in range(_inventory.slots.size()):
-		#if slots[i].itemGui:
-			#slots[i].itemGui.update(_inventory.slots[i])
 	update_slots()
 	if Input.is_action_just_pressed("open"):
 		if opened:
@@ -49,14 +46,36 @@ func open():
 	visible = true
 	
 func _on_slot_gui_input(event,inv_slot:inventory_slot ,slot, i):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.double_click:
-			if inv_slot.item:
-				if inv_slot.item.name == "Apple":
-					_inventory.use(inv_slot.item, 1)
-					Globals.hunger += 5
-					Globals.playerCurrentHealth += 2
-					update_slots()
-			
-
-
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:	
+		if event.double_click and inv_slot.item:
+			if inv_slot.item.name == "Apple":
+				_inventory.use(inv_slot.item, 1)
+				Globals.hunger += 5
+				Globals.playerCurrentHealth += 2
+				update_slots()
+				
+		#elif event.pressed:
+			#if slot.isEmpty() and itemInHand:
+				#insertItem(slot)
+				#return
+			#if not itemInHand and inv_slot.item:
+				#takeItemInHand(slot)
+			#else: return
+			#
+#func insertItem(slot):
+	#var it = itemInHand
+	#remove_child(itemInHand)
+	#itemInHand = null	
+	#slot.insert(it)
+			#
+#func takeItemInHand(slot):
+	#itemInHand = slot.takeItem()
+	#add_child(itemInHand)
+	#moveItemInHand()
+	#
+#func moveItemInHand():
+	#if not itemInHand: return
+	#itemInHand.global_position = get_global_mouse_position() - itemInHand.size/2
+#
+#func _input(event):
+	#moveItemInHand()

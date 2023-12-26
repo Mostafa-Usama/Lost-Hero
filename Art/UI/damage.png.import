@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vq34aq1fl4id"
-path="res://.godot/imported/apple-icon.png-ba1fe633e0efb4cc919c6653e9dd8371.ctex"
+uid="uid://82mrk4jo0hj5"
+path="res://.godot/imported/damage.png-e92d6060cb99dada271596a80db75cf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/apple-icon.png"
-dest_files=["res://.godot/imported/apple-icon.png-ba1fe633e0efb4cc919c6653e9dd8371.ctex"]
+source_file="res://Art/UI/damage.png"
+dest_files=["res://.godot/imported/damage.png-e92d6060cb99dada271596a80db75cf8.ctex"]
 
 [params]
 

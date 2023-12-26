@@ -1,21 +1,34 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqkkawsnawbyp"]
+[gd_scene load_steps=10 format=3 uid="uid://bqkkawsnawbyp"]
 
-[ext_resource type="Texture2D" uid="uid://biudnpcjfa3pi" path="res://Art/survivalgame-appletree.png" id="1_h3jd3"]
 [ext_resource type="Script" path="res://Scripts/apple_tree.gd" id="1_hfnmq"]
+[ext_resource type="Texture2D" uid="uid://diiqvd4onw4n4" path="res://Art/Apple Tree.png" id="2_5k41n"]
+[ext_resource type="Shader" path="res://shaders/wind.gdshader" id="2_28daw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3pfp1"]
-atlas = ExtResource("1_h3jd3")
-region = Rect2(40, 0, 40, 40)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8fu50"]
+shader = ExtResource("2_28daw")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.02
+shader_parameter/maxStrength = 0.12
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jeo1d"]
-atlas = ExtResource("1_h3jd3")
-region = Rect2(80, 0, 40, 40)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hys61"]
+atlas = ExtResource("2_5k41n")
+region = Rect2(128, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn7q3"]
+atlas = ExtResource("2_5k41n")
+region = Rect2(64, 48, 64, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jqcfw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3pfp1")
+"texture": SubResource("AtlasTexture_hys61")
 }],
 "loop": true,
 "name": &"Grown",
@@ -23,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jeo1d")
+"texture": SubResource("AtlasTexture_qn7q3")
 }],
 "loop": true,
 "name": &"not_grown",
@@ -37,15 +50,17 @@ radius = 25.02
 
 [node name="Apple Tree" type="StaticBody2D"]
 z_index = 1
+scale = Vector2(1.5, 1.5)
 collision_layer = 2
 script = ExtResource("1_hfnmq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_8fu50")
 sprite_frames = SubResource("SpriteFrames_jqcfw")
 animation = &"not_grown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(0, 14.6667)
 shape = SubResource("CircleShape2D_b7p1j")
 
 [node name="Pick Range" type="Area2D" parent="."]

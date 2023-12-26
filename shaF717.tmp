@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqrekgn5drbs"]
+
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_5lu0o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gchn"]
+shader = ExtResource("1_5lu0o")
+shader_parameter/wavy = 0.2
+shader_parameter/color = null
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hqda8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iucan"]
+seamless = true
+noise = SubResource("FastNoiseLite_hqda8")
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_5gchn")
+position = Vector2(100, 67.5)
+scale = Vector2(1.39063, 1.26367)
+texture = SubResource("NoiseTexture2D_iucan")

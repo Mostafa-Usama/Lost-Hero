@@ -5,15 +5,19 @@ class_name  inventory
 @export var slots: Array[inventory_slot]
 #var inv = load("res://Scenes/inventory_ui.tscn")
 func insert(items:invItem):
+	var stored = false
 	for i in range(slots.size()):
 		if slots[i].item == items:
 			if slots[i].amount < 9:
 				slots[i].amount +=1
+				stored = true
 				break
-		if not slots[i].item :
-			slots[i].item = items
-			slots[i].amount =1
-			break
+	if not stored:				
+		for i in range(slots.size()):
+			if not slots[i].item :
+				slots[i].item = items
+				slots[i].amount =1
+				break
 
 func use(it:invItem, amount):
 	
