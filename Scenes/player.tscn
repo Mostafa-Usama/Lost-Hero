@@ -651,11 +651,14 @@ limit_bottom = 275
 layer = 0
 
 [node name="Inventory_UI" parent="." instance=ExtResource("4_op7yf")]
-z_index = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = -45.0
 offset_top = -81.0
 offset_right = 45.0
 offset_bottom = -16.0
+metadata/_edit_use_anchors_ = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3)

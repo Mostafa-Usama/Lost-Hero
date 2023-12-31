@@ -14,5 +14,4 @@ offset_left = -7.0
 offset_right = 33.0
 offset_bottom = 26.0
 scale = Vector2(0.35, 0.35)
-theme_override_constants/outline_size = 1
 horizontal_alignment = 2

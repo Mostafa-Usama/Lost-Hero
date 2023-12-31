@@ -1,15 +1,15 @@
 extends Control
 
 var opened = false
-@onready var _inventory:inventory = preload("res://inventory/inventories/player_inventory.tres")
+@export var _inventory:inventory 
 @onready var slots: Array = $Background/GridContainer.get_children()
 @onready var itemGuiInstance = preload("res://Scenes/ItemGui.tscn")
+var inUI : bool
 # Called when the node enters the scene tree for the first time.
 var itemInHand : item_gui
 func update_slots():
 	for i in range(_inventory.slots.size()):
 		if (_inventory.slots[i].item):
-			#var it:item_gui = slots[i].itemGui
 			if not slots[i].itemGui:
 				slots[i].itemGui = itemGuiInstance.instantiate()
 				slots[i].insert(slots[i].itemGui)
@@ -17,21 +17,26 @@ func update_slots():
 			slots[i].itemGui.update()
 		
 func _ready():
+	#print(get_parent().name)
+	if get_parent().name == "Campfire UI":
+		inUI = true
 	update_slots()
-	close()
+	if not  inUI:
+		close()
 	connectSlots()
 	
-func connectSlots():
 	
-	for i in range(slots.size()):
-		var callable = Callable(_on_slot_gui_input)
-		callable = callable.bind(_inventory.slots[i],slots[i], i)
-		slots[i].gui_input.connect(callable)
+func connectSlots():
+	if not inUI:
+		for i in range(slots.size()):
+			var callable = Callable(_on_slot_gui_input)
+			callable = callable.bind(_inventory.slots[i],slots[i], i)
+			slots[i].gui_input.connect(callable)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	update_slots()
-	if Input.is_action_just_pressed("open"):
+	if Input.is_action_just_pressed("open") and not inUI:
 		if opened:
 			close()
 		else:
@@ -45,14 +50,18 @@ func open():
 	opened = true
 	visible = true
 	
-func _on_slot_gui_input(event,inv_slot:inventory_slot ,slot, i):
+func _on_slot_gui_input(event,inv_slot:inventory_slot ,_slot, _i):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:	
 		if event.double_click and inv_slot.item:
 			if inv_slot.item.name == "Apple":
-				_inventory.use(inv_slot.item, 1)
+				_inventory.consumeItems(inv_slot.item, 1)
 				Globals.hunger += 5
 				Globals.playerCurrentHealth += 2
-				update_slots()
+			if inv_slot.item.name == "Cooked Meat":
+				_inventory.consumeItems(inv_slot.item, 1)
+				Globals.hunger += 20
+				Globals.playerCurrentHealth += 5
+
 				
 		#elif event.pressed:
 			#if slot.isEmpty() and itemInHand:

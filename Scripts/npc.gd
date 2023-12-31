@@ -45,12 +45,14 @@ func _process(_delta):
 		#move_and_slide()
 
 func quest():
-	return  player_inv.use(quest_item, amount)
+	print(player_inv.haveItems(quest_item, amount))
+	return  player_inv.haveItems(quest_item, amount)
 
 func _input(event):
 	if event.is_action_pressed("action") and not talking and player_around:
 		if talked:
 			if (not quest_finished) and quest():
+				player_inv.consumeItems(quest_item, amount)
 				Globals.currentXp += xp
 				quest_finished = true
 				finshed.emit()

@@ -8,7 +8,7 @@ extends HBoxContainer
 @onready var skills : Array[PackedScene] = [health, speed, luck, damage, armor]
 var lvl = 1
 
-func _process(delta):
+func _process(_delta):
 	if Globals.currentLevel != lvl:
 		lvl = Globals.currentLevel
 		pick_skills()	
@@ -26,9 +26,7 @@ func pick_skills():
 		skill.connect("close", close)
 		picked.push_back(rand)
 	picked.clear()
-	
-func connect_sginals(skill_scene:PackedScene):
-	pass
+
 func close():
 	$"../..".visible = false
 	$"../../../Character/Level Up Button".visible = false

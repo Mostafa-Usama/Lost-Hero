@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi4wiv1s24u33"]
+[gd_scene load_steps=14 format=3 uid="uid://bi4wiv1s24u33"]
 
 [ext_resource type="Texture2D" uid="uid://b3tkv2lluxqxw" path="res://Art/free_campfire.png" id="1_0p18s"]
+[ext_resource type="Script" path="res://Scripts/campfire.gd" id="1_x68cw"]
 [ext_resource type="Texture2D" uid="uid://dnpn78pi7mk53" path="res://Art/white.png" id="2_rcu0e"]
+[ext_resource type="PackedScene" uid="uid://d3dbi2r400lkw" path="res://Scenes/campfire_ui.tscn" id="4_1oce4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbqir"]
 atlas = ExtResource("1_0p18s")
@@ -50,11 +52,15 @@ scale_min = 0.1
 scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_50bj8")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bems7"]
+radius = 25.0247
+
 [node name="campfire" type="StaticBody2D"]
 z_index = 1
 scale = Vector2(1.8, 1.8)
 collision_layer = 2
 collision_mask = 17
+script = ExtResource("1_x68cw")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -87,3 +93,16 @@ rotation = 0.785398
 texture = ExtResource("1_0p18s")
 region_enabled = true
 region_rect = Rect2(0, 18.5448, 13.9057, 14.8352)
+
+[node name="open range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="open range"]
+position = Vector2(-1.66667, 1.11111)
+shape = SubResource("CircleShape2D_bems7")
+
+[node name="Campfire UI" parent="." instance=ExtResource("4_1oce4")]
+visible = false
+
+[connection signal="body_entered" from="open range" to="." method="_on_open_range_body_entered"]
+[connection signal="body_exited" from="open range" to="." method="_on_open_range_body_exited"]
+[connection signal="close" from="Campfire UI" to="." method="_on_campfire_ui_close"]

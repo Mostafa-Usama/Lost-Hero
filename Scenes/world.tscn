@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://blyrukrnlfd3w"]
+[gd_scene load_steps=108 format=3 uid="uid://dv6rqgbwv22l"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_6vxsc"]
 [ext_resource type="Texture2D" uid="uid://doh55vo64701f" path="res://Art/survivalgame-terrian-cliffs.png" id="1_gjn5l"]
@@ -37,7 +37,6 @@
 [ext_resource type="PackedScene" uid="uid://bqex8qlhf06a4" path="res://Scenes/wooden_door.tscn" id="32_aeqwl"]
 [ext_resource type="PackedScene" uid="uid://01na3tdelpfk" path="res://Scenes/skeleton_enemy.tscn" id="36_2ihvq"]
 [ext_resource type="Texture2D" uid="uid://dgvj1o4hhbumx" path="res://Art/rain.png" id="37_tnwoh"]
-[ext_resource type="PackedScene" uid="uid://d3dbi2r400lkw" path="res://Scenes/campfire_ui.tscn" id="38_0rbxr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfa2e"]
 texture = ExtResource("1_gjn5l")
@@ -2831,7 +2830,7 @@ position = Vector2(-1000, -82)
 position = Vector2(126, 182)
 
 [node name="Stick" parent="Ground" instance=ExtResource("7_is5bf")]
-position = Vector2(-109, 66)
+position = Vector2(95, 41)
 
 [node name="Stick4" parent="Ground" instance=ExtResource("7_is5bf")]
 position = Vector2(313, 176)
@@ -3127,6 +3126,9 @@ position = Vector2(-612, -1057)
 [node name="skeleton enemy8" parent="Eneimes" instance=ExtResource("36_2ihvq")]
 position = Vector2(-394, -927)
 
+[node name="bear2" parent="Eneimes" instance=ExtResource("14_wn4bi")]
+position = Vector2(-827, 38)
+
 [node name="DirectionalLight2D2" type="DirectionalLight2D" parent="."]
 visible = false
 color = Color(0.670588, 0.670588, 0.670588, 1)
@@ -3146,9 +3148,6 @@ emission_rect_extents = Vector2(600, 1)
 scale_amount_min = 2.0
 scale_amount_max = 3.0
 color = Color(1, 1, 1, 0.772549)
-
-[node name="Campfire UI" parent="." instance=ExtResource("38_0rbxr")]
-visible = false
 
 [connection signal="body_entered" from="areas/down" to="." method="_on_down_body_entered"]
 [connection signal="body_entered" from="areas/return down" to="." method="_on_return_down_body_entered"]

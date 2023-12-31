@@ -41,7 +41,7 @@ func _on_chest_collect_items():
 
 func collect():
 	for i in range(current_items.size()):
-		_inventory.use(current_items[i], 1)
+		_inventory.consumeItems(current_items[i], 1)
 		player_inventory.insert(current_items[i])
 	
 	empty.emit()

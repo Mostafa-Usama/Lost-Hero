@@ -18,13 +18,16 @@ func insert(items:invItem):
 				slots[i].item = items
 				slots[i].amount =1
 				break
-
-func use(it:invItem, amount):
+func haveItems(it:invItem, amount):
 	
 	for i in range(slots.size()):
 		if slots[i].item:
 			if slots[i].item.name == it.name and slots[i].amount >= amount:
-				slots[i].amount -= amount
-				#inv.uodate()
 				return true
 	return false
+
+func consumeItems(it:invItem, amount):
+	for i in range(slots.size()):
+		if slots[i].item:
+			if slots[i].item.name == it.name:
+				slots[i].amount -= amount

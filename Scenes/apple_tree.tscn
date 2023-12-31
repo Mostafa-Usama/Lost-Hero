@@ -1,8 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqkkawsnawbyp"]
+[gd_scene load_steps=11 format=3 uid="uid://bqkkawsnawbyp"]
 
 [ext_resource type="Script" path="res://Scripts/apple_tree.gd" id="1_hfnmq"]
 [ext_resource type="Texture2D" uid="uid://diiqvd4onw4n4" path="res://Art/Apple Tree.png" id="2_5k41n"]
 [ext_resource type="Shader" path="res://shaders/wind.gdshader" id="2_28daw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1gpk"]
+shader = ExtResource("2_28daw")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = null
+shader_parameter/heightOffset = null
+shader_parameter/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8fu50"]
 shader = ExtResource("2_28daw")
@@ -44,12 +56,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7p1j"]
+radius = 7.36357
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1oypw"]
-radius = 25.02
+radius = 19.3333
 
 [node name="Apple Tree" type="StaticBody2D"]
 z_index = 1
+material = SubResource("ShaderMaterial_r1gpk")
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 script = ExtResource("1_hfnmq")
@@ -60,12 +74,13 @@ sprite_frames = SubResource("SpriteFrames_jqcfw")
 animation = &"not_grown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14.6667)
+position = Vector2(-0.666667, 19.3333)
 shape = SubResource("CircleShape2D_b7p1j")
 
 [node name="Pick Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick Range"]
+position = Vector2(-0.666667, 8)
 shape = SubResource("CircleShape2D_1oypw")
 
 [node name="Growth_time" type="Timer" parent="."]
