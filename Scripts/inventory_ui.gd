@@ -60,6 +60,10 @@ func _on_slot_gui_input(event,inv_slot:inventory_slot ,_slot, _i):
 			if inv_slot.item.name == "Cooked Meat":
 				_inventory.consumeItems(inv_slot.item, 1)
 				Globals.hunger += 20
+				Globals.playerCurrentHealth += 7
+			if inv_slot.item.name == "Apple Juice":
+				_inventory.consumeItems(inv_slot.item, 1)
+				Globals.hunger += 10
 				Globals.playerCurrentHealth += 5
 
 				

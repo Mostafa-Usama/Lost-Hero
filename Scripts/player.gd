@@ -11,13 +11,16 @@ var dead = false
 var lvl = 1
 @onready var col = $CollisionShape2D
 
-func _physics_process(_delta):
+func _process(_delta):
 	if Globals.currentLevel != lvl :
 		lvl = Globals.currentLevel
 		$AnimationPlayer.play("level_up")
 	if Globals.hunger <= 0 and not dead:
 		dead = true
 		$AnimatedSprite2D.play("death")
+		
+func _physics_process(_delta):
+	
 	if not dead:
 		var direction = Input.get_vector("left", "right", "up", "down")
 		

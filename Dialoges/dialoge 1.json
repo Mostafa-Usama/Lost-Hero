@@ -30,5 +30,14 @@
 		{"name":"You", "text": "Come King, follow me!"},
 		{"name":"King", "text": "Okay..."},
 		{"name":"King", "text": "Thanks for saving me!!"}
+	],
+	[
+		{"name":"Farmer", "text": "Agh... those annoying wolves again!"},
+		{"name":"You", "text": "Hey, what's wrong?"},
+		{"name":"Farmer", "text": "They keep eating my crops!"},
+		{"name":"You", "text": "Where are those wolves??"},
+		{"name":"Farmer", "text": "They keep fleeing to the north road"},
+		{"name":"You", "text": "Okay, I will see what I can do"},
+		{"name":"Farmer", "text": "Thanks for helping me!"}
 	]
 ]

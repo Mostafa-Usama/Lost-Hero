@@ -1,6 +1,7 @@
 extends npc
 
 var arrived = false
+
 @onready var queen = get_parent().find_child("queen")
 func _process(_delta):
 	if ani:
@@ -14,23 +15,25 @@ func _process(_delta):
 	
 		elif player_state == "idle" or talking:
 			ani.play("idle")
-	
-	#if player_state == "walking" and not talking:
-		#if direction == Vector2.RIGHT:
-			#ani.play("walk_right")
-		#if direction == Vector2.LEFT:
-			#ani.play("walk_left")
-		#if direction == Vector2.UP:
-			#ani.play("walk_up")
-		#if direction == Vector2.DOWN:
-			#ani.play("walk_down")
-		#velocity = direction * speed
-		#move_and_slide()
-	if player_around and Input.is_action_just_pressed("action") and not talking and not finished_talking:
+			
+		if player_around and Input.is_action_just_pressed("action") and not talking and not finished_talking:
+			talking = true
+			$Dialogue.start() 
+		
+
+func _input(event):
+	if event.is_action_pressed("action") and (not talked or arrived) and player_around:
+		if talked:
+			if (not quest_finished) and quest():
+				quest_finished = true
+				finshed.emit()
+		finished_talking = false
+		talked = true	
 		talking = true
 		$Dialogue.start() 
 		
-		
+	elif event.is_action_pressed("action") and finished_talking :
+		talking = false		
 
 func look_at_player():
 	var dir = rad_to_deg( ((player.global_position-global_position).normalized()).angle())
@@ -42,4 +45,4 @@ func look_at_player():
 		$AnimatedSprite2D.flip_h = false
 		
 func quest():
-	pass
+	return arrived

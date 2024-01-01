@@ -62,3 +62,9 @@ func _on_return_up_2_body_entered(_body):
 	player_cam.limit_top = -1110
 	player_cam.limit_left = -1070
 	player_cam.limit_right = -370
+
+
+func _on_left_left_body_entered(body):
+	player_cam.limit_left = -1730
+	player_cam.limit_right = -1070
+

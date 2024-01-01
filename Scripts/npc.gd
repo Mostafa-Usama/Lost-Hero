@@ -45,7 +45,6 @@ func _process(_delta):
 		#move_and_slide()
 
 func quest():
-	print(player_inv.haveItems(quest_item, amount))
 	return  player_inv.haveItems(quest_item, amount)
 
 func _input(event):
